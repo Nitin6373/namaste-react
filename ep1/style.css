@@ -1,0 +1,24 @@
+
+
+.Box{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid blue;
+    padding: 50px;
+}
+
+.FirstDiv{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid blue;
+}
+.Red{
+    color: red;
+}
