@@ -1,0 +1,24 @@
+{
+  "name": "ep2",
+  "version": "1.0.0",
+  "description": "Ep2 - namaste React ",
+  "homepage": "https://github.com/Nitin6373/namaste-react#readme",
+  "bugs": {
+    "url": "https://github.com/Nitin6373/namaste-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nitin6373/namaste-react.git"
+  },
+  "license": "ISC",
+  "author": "Nitin",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "parcel": "^2.16.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
