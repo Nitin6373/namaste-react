@@ -1,0 +1,17 @@
+{
+  "name": "ep3",
+  "version": "1.0.0",
+  "description": "3rd Step towards React",
+  "license": "ISC",
+  "author": "me",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
