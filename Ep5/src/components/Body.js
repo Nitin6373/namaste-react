@@ -10,6 +10,34 @@ const Body = () => {
     // let ListOfRes = resObj;
 
     const [ListofRes, setListofRes] = useState(resObj)
+    /*
+        what's with this new syntax of state declaration
+        it's nothing special 
+        it's just normal JS
+        useState hook returns an array which contains two arguments 
+        first = State variable
+        second = Function to modify the State & trigger the diff algorithm
+        can we write differently
+        yes
+
+        const arr = useState(resObj)
+        const [ListofRes,setListofRes] = arr
+            or
+        const ListofRes = arr[0]
+        const setListofRes = arr[1]
+
+        when we distructure using Obj
+        we use 
+        const {keyname} = obj;
+        means that key exists in the obj and we want its value in this provided variable.
+
+        when we distructure from array
+        we provide the same no. of elements in [] as the arr contains
+
+        here arr contains two
+        so 
+        const [first,setfirst] = arr;
+    */
     // State are the powerful variables
     // REact keeps an eye on all state variable
     // react creates a virtual Dom of the react elements 
