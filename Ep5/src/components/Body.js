@@ -55,7 +55,7 @@ const Body = () => {
                 )))
             }}>Filter</button>
         </div>
-        <div className="res-container">
+        <div className="res-container"> 
 
             {/* Props Examples */}
             {/* <Card imgUrl="https://woodchop.in/cdn/shop/files/ChatGPTImageJan28_2026_12_28_21AM2.png?v=1769540476" res="KFC" cuisine="Pizza-Burger . FastFood" rating="4.4 Stars" />
