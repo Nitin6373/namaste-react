@@ -1,6 +1,7 @@
 import Card from "./Card"
 import { resObj } from "../utils/mockData"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { ResCard } from "./Pro"
 
 
 
@@ -46,16 +47,77 @@ const Body = () => {
     // the difference between the old virtual Dom and the New virtual Dom.
     // whenever we use the setState function it triggers the diff algorithm which checks and finds the difference between the old and new virtual Dom.
     // After react gets the diff , it updates the Dom with new virtual Dom.
+
+
+    /*
+    Ep6 Started : 26 Nov
+
+    UseEffect HOok = a simple Js Function which is given to us by React.
+
+    Takes Two Arguments:
+    First = A Callback Function = ()=>{}
+    Second = a Dependency Array = []
+
+    [] = After whole Component is Rendered , Execute Once
+    */
+
+    useEffect(() => {
+        console.log("UseEffect Called");
+        fetchData()
+    }, [])
+
+    const [apidata, setApidata] = useState(null)
+    const [txt, setText] = useState("")
+    const FinalList = apidata?.filter(res => res.title.toLowerCase().includes(txt.toLowerCase()))
+
+    const fetchData = async () => {
+        const data = await fetch("https://dummyjson.com/products")
+
+        const json = await data.json()
+        // console.log(json);
+
+        // setTimeout(() => {
+        setApidata(json?.products)
+        // }, 2000);
+    }
+
+    console.log("Rendered")
     return <main>
         <div className="search">
-            <input type="text" placeholder="Enter Here" />
-            <button onClick={() => {
+            <input type="text" name="txtBox" onChange={(e) => setText(e.target.value)} placeholder="Enter Here" value={txt} />
+            <button>
+                Search
+            </button>
+            {/* <button onClick={() => {
                 setListofRes(ListofRes.filter(res => (
                     res.avgRating > 4
                 )))
-            }}>Filter</button>
+            }}>Filter</button> */}
         </div>
-        <div className="res-container"> 
+        <h1>Product Card</h1>
+        <div className="res-container">
+
+            {
+                FinalList ?
+                    FinalList.map(resData => {
+                        return <ResCard key={resData.id} resData={resData} />
+                    })
+                    : <div className="loading">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
+            }
 
             {/* Props Examples */}
             {/* <Card imgUrl="https://woodchop.in/cdn/shop/files/ChatGPTImageJan28_2026_12_28_21AM2.png?v=1769540476" res="KFC" cuisine="Pizza-Burger . FastFood" rating="4.4 Stars" />
@@ -63,10 +125,16 @@ const Body = () => {
             <Card imgUrl="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg" res="MeghnaFoods" cuisine="Biryani,North-Indian" rating="4 Stars" /> */}
 
             {/* Example of Usage of production ready data from Backend */}
+        </div>
+        {/* <h1>Restaurant Cards</h1> */}
+
+        {/* <div className="res-container">
+
             {ListofRes.map(res => (
                 <Card key={res.id} resData={res} />
             ))}
-        </div>
+        </div> */}
+
     </main>
 }
 
